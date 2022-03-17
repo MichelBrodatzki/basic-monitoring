@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily monitor notification
+
+[Timer]
+OnCalendar=*-*-* 07:00:00
+Unit=notify_goodmorning.service
+
+[Install]
+WantedBy=multi-user.target

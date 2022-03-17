@@ -1,0 +1,10 @@
+[Unit]
+Description=Sends notification via Telegram on bootup
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/root/utils/send_telegram.sh "NAS is now up!" zpool
+
+[Install]
+WantedBy=multi-user.target

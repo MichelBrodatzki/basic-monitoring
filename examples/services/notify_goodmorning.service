@@ -1,0 +1,10 @@
+[Unit]
+Description=Sends notification via Telegram daily at 7am
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/root/utils/send_telegram.sh "Good morning!" zpool smart
+
+[Install]
+WantedBy=multi-user.target
