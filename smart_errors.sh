@@ -6,10 +6,10 @@
 
 smart="<i>SMART health:</i>\n"
 
-for dev in $(ls /dev/sd[a-z])
+for dev in $(lsblk -d | tail -n+2 | cut -d" " -f1)
 do
-	device_id=$(smartctl -i $dev | grep "Device Model" | cut -c 19-)
-	smart="${smart}<u>Drive: $device_id</u>\n$(smartctl -H $dev | tail -n +5)\n"
+	device_id=$(smartctl -i /dev/$dev | grep "Device Model" | cut -c 19-)
+	smart="${smart}<u>Drive: $device_id</u>\n$(smartctl -H /dev/$dev | tail -n +5)\n"
 done
 
 printf "$smart"
