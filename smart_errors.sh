@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Prints health state of every sd[a-z] device in a format accepted
 # by pip3 package telegram-send with parameter --format html.
 # For plain HTML replace \n with <br>.
